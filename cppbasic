@@ -1,0 +1,10 @@
+一、序
+语言 机器语言 编译形（c） 解释形(python) 脚本（bash）
+  源程序 编译器 目标程序 连接器 可执行程序
+二、
+数据类型
+  1 byte = 8 bits
+  数据类型 括号内为byte数字
+  char(1),short int(16), long int(32), int
+  float, double, long double
+   bool, wchar_t

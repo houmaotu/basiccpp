@@ -5,10 +5,10 @@
 数据类型
   1 byte = 8 bits
   数据类型 括号内为byte数字
-  char(1), wchar_t(2)
-  short int(2), long int(4), int(4) 可以是十进制 八进制 十六进制
+  char(1), wchar_t(2)  单引号 ' ' L开头是wchar
+  short int(2), long int(4), int(4) 可以是 前缀十进制（不写） 八进制（0） 十六进制（0x） 后缀：u代表无符号 l代表长
   float(4), double(8), long double(8)
-   bool(1)
+   bool(1) true false
    
 变量名字 不允许特殊字符 不允许数字开头 区分大小写 不允许分开 尽可能名词或者形容词+名词 尽量不要出现数字
         匈牙利（int） iMyAge  camel myAge  pascal MyAge
@@ -16,4 +16,21 @@
 变量：内存位置固定 数值可以变化  例如 int m = 1， n = 1;
 常量：不变了 #define PI = 3.14 或者 const double PI = 3.14 尽量用const
 
+运算符：
+算术 + - * / % ++ --
+关系 == != > < >= <=
+逻辑 &&（与） || （或）     ！（非）
+位 &（与） |（或） ^ (异或 不一样为1 一样为0) ~ （去反） << >>
+赋值：= += -= = /= %=  按位 <<= >>= &= ^= !=
+其他: sizeof (返回变量的byte数) condition ? X:Y (三目 类似ifelse)   ,并列关系 返回后面的  cast 强制转换  *指针 指向变量 &指针 指向地址  . -> 类别 结构体等等
+注释 单行// 多行/* */
 
+容器 一组连续的同类型春初 也可以把多个存储区合并
+数组 例如 int arr[10] = {1,2,3,4,5,6,7,8};  有两个多的 但是个数不可变 不够补0 a[2][3] 二维数组
+动态数组 #include <vector>  vector <int> vec = {1,2,3,4}; vec.push_back() 尾部插入 vec.size() 长度 vec.capacity() 容量不一定是size vec.insert(--vec.end(),4) 尾部前一个
+                                                         删除尾部 vec.pop_back(); vec.erase(--vec.end())
+字符串：以\0结束的字符数组  char strHelloWoek[11] = {"helloword"};     注意ASCII码     unicode   ，UTF-8  UTF-32 UTF-16  编码错误 （byte order mark 编码解码方式不一样）                                      
+   指针方式 char*pStrHelloWord = "helloword"l 定义指针（就是地址 就是内存的区域不一样）区别 strHelloWoek死的 后面是活的 pStrHelloWord这玩意可以变 后面的看情况
+   #include <string.h> strlen(s) 计算长度（不包括\0）strcmp(s1,s2) 字典序比大小 strcpy(s1,s2) strcpy(s1,s2) strchr（s1,ch） strstr(s1,s2) 查找 strcat(s1,s2) 
+                                                                                                                                       建议用带_s的api函数
+    

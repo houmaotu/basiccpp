@@ -29,8 +29,28 @@
 数组 例如 int arr[10] = {1,2,3,4,5,6,7,8};  有两个多的 但是个数不可变 不够补0 a[2][3] 二维数组
 动态数组 #include <vector>  vector <int> vec = {1,2,3,4}; vec.push_back() 尾部插入 vec.size() 长度 vec.capacity() 容量不一定是size vec.insert(--vec.end(),4) 尾部前一个
                                                          删除尾部 vec.pop_back(); vec.erase(--vec.end())
-字符串：以\0结束的字符数组  char strHelloWoek[11] = {"helloword"};     注意ASCII码     unicode   ，UTF-8  UTF-32 UTF-16  编码错误 （byte order mark 编码解码方式不一样）                                      
-   指针方式 char*pStrHelloWord = "helloword"l 定义指针（就是地址 就是内存的区域不一样）区别 strHelloWoek死的 后面是活的 pStrHelloWord这玩意可以变 后面的看情况
+字符串：以\0结束的字符数组  char strHelloWord[10] = {"helloword"};     注意ASCII码     unicode   ，UTF-8  UTF-32 UTF-16  编码错误 （byte order mark 编码解码方式不一样）                                      
+   指针方式 char*pStrHelloWord = "helloword" 定义指针（就是地址 就是内存的区域不一样）区别 strHelloWord死的 后面是活的 pStrHelloWord这玩意可以变 后面的看情况
    #include <string.h> strlen(s) 计算长度（不包括\0）strcmp(s1,s2) 字典序比大小 strcpy(s1,s2) strcpy(s1,s2) strchr（s1,ch） strstr(s1,s2) 查找 strcat(s1,s2) 
-                                                                                                                                       建议用带_s的api函数
+     string s = "hellowword";       .length ,size ,capacity  可以+                                                        建议用带_s的api函数
     
+指针： c++ 内存单元 有地址 通过名字访问地址 int a = 112； int* d = &a 间接访问 然后d就是a的地址 *d 就是a
+
+数组与指针 char strHelloWord[10] = {"helloword"}   char*pStrHelloWord = "helloword"
+        左值： 单独搞一块空间 可以取到  右值: 临时  strHelloWord是右值
+        指针 T*  指针的的数组（array of pointers int） int* a[4]  四个指针的数组   数组的指针（a pointer to an array   ） int(* a)[4] 一个指针 指向四个数的数组
+        const pointer. pointer to const: char const* pStr  char* const pStr,  char const* const pStr 注意 const看做最近 否则看右
+                         const char * pStr 或者 char const* pStr 修饰的是char 地址可变 内容不可变  char* const pStr 修饰的是指针 地址不可变 内容可变 char const* const pStr 都不可变
+指针指向指针 int a = 123, int*b = &a, int** c = &b    (* 从右向左)
+为初始化指针 int*a； *a = 12; 赋值之前引用是危险的 可能无意识修改了诡异的东西 所以一定要初始化 但是可以int *a = NULL; 就是哪里都不指 引用之前看看是不是null
+指针运算  * &  （后续较复杂 略5-8）
+
+基础语法 顺序 分支 循环
+分支 if（cond）{;} else if{;} else {;}   switch(){case c1: {cout<<1<<endl; break;}  case c2:{ cout<<2<<endl; break;}  default: {cout<<3<<endl; break;}}
+   枚举enum(enumeration) 例如 enum wT{MON,TUE,WED} 声明; wT = weekday;    weekday = MON;
+   结构体 struct Student{char name[6];int age; Score s;} 联合体 Union Score{double sc; char level;} 结构体尽量对齐 自己的机器位数  （仅了解 下略）
+   
+ 循环 while do while for
+ while(){;}   for(;;){;}  do{;} while {}
+ 
+ 函数：库 自定义 int main() { return 0;} 按照c++ 标准 main函数需要一个返回值 这样子可以看main函数是否正常执行
